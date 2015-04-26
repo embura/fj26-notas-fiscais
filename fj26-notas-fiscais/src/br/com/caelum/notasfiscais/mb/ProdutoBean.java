@@ -47,4 +47,13 @@ public class ProdutoBean {
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
+
+	public Double getvalorTotal() {
+		Double total = 0.0;
+		for (Produto produto : this.produtos) {
+			total += produto.getPreco();
+		}
+		return total;
+	}
+	
 }

@@ -16,28 +16,33 @@
 	</div>
 	<div id="conteudo">
 		<h:form id="form_cadastro">
-		<fieldset>
-		<legend>Dados do Produto</legend>
-			<h:inputHidden value="#{produtoBean.produto.id}" />
-			<h2>
-				<h:outputText value="Novo Produto"
-					rendered="#{empty produtoBean.produto.id}" />
-				<h:outputText value="Altera Produto"
-					rendered="#{not empty produtoBean.produto.id}" />
-			</h2>
-			<h:outputLabel value="Nome:" for="nome" />
-			<h:inputText id="nome" value="#{produtoBean.produto.nome}" />
+			<fieldset>
+				<legend>Dados do Produto</legend>
+				<h:inputHidden value="#{produtoBean.produto.id}" />
+				<h2>
+					<h:outputText value="Novo Produto"
+						rendered="#{empty produtoBean.produto.id}" />
+					<h:outputText value="Altera Produto"
+						rendered="#{not empty produtoBean.produto.id}" />
+				</h2>
+				<h:outputLabel value="Nome:" for="nome" />
+				<h:inputText id="nome" value="#{produtoBean.produto.nome}" />
 
-			<h:outputLabel value="Descrição" for="descricao" />
-			<h:inputTextarea id="descricao"
-				value="#{produtoBean.produto.descricao}" />
+				<h:outputLabel value="Descrição" for="descricao" />
+				<h:inputTextarea id="descricao"
+					value="#{produtoBean.produto.descricao}" />
 
-			<h:outputLabel value="Preço" for="preco" />
-			<h:inputText id="preco" value="#{produtoBean.produto.preco}" />
+				<h:outputLabel value="Preço" for="preco" />
+				<h:inputText id="preco" value="#{produtoBean.produto.preco}" />
 
-			<h:commandButton value="Gravar" action="#{produtoBean.gravar}">
-				<f:ajax execute="@form" render=":listaProdutos" />
-			</h:commandButton>
+				<h:commandButton value="Gravar" action="#{produtoBean.gravar}">
+					<f:ajax execute="@form" render=":listaProdutos" />
+				</h:commandButton>
+
+				<h:commandButton value="Cancelar">
+					<f:ajax update="@form" resetValues="true"  render="@form"/>
+				</h:commandButton>
+
 			</fieldset>
 		</h:form>
 
@@ -55,6 +60,9 @@
 			</h:column>
 				<h:column>
 					<f:facet name="header">Preço</f:facet>
+					<f:facet name="footer">
+						Total : #{produtoBean.valorTotal}
+					</f:facet>
 				#{produto.preco}
 			</h:column>
 
