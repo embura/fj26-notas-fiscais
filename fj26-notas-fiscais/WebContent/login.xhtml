@@ -13,15 +13,15 @@
 <h:body>
 	<div id="conteudo">
 		<h2>Login no Sistema</h2>
-		<h:form id="formulario" action="">
+		<h:form id="formulario" >
 			<h:panelGrid columns="2" styleClass="campos">
 				<h:outputLabel value="Login:" for="login" />
 				<h:inputText id="login" value="#{loginBean.usuario.login}" />
 
 				<h:outputLabel value="Senha:" for="senha" />
-				<h:inputText  id="senha" value="#{loginBean.usuario.senha}" />
+				<h:inputSecret  id="senha" value="#{loginBean.usuario.senha}" />
 
-				<h:commandButton action="loginBean.efetuaLogin" value="Efetua Login" />
+				<h:commandButton value="Efetua Login" action="#{loginBean.efetuaLogin}"/>
 
 			</h:panelGrid>
 

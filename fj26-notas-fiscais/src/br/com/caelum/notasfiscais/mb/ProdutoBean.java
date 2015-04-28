@@ -48,12 +48,12 @@ public class ProdutoBean {
 		this.produto = produto;
 	}
 
-	public Double getvalorTotal() {
+	public Double getValorTotal() {
 		Double total = 0.0;
 		for (Produto produto : this.produtos) {
 			total += produto.getPreco();
 		}
 		return total;
 	}
-	
+
 }

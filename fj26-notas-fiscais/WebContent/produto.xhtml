@@ -14,6 +14,9 @@
 		<h:graphicImage library="imagens" name="logo-uber.png"
 			id="logoCompany" />
 	</div>
+	<div id="usuaarioLogado">
+		Logado como: #{loginBean.usuario.login}
+	</div>
 	<div id="conteudo">
 		<h:form id="form_cadastro">
 			<fieldset>
@@ -40,7 +43,7 @@
 				</h:commandButton>
 
 				<h:commandButton value="Cancelar">
-					<f:ajax update="@form" resetValues="true"  render="@form"/>
+					<f:ajax update="@form" resetValues="true" render="@form" />
 				</h:commandButton>
 
 			</fieldset>
@@ -63,6 +66,7 @@
 					<f:facet name="footer">
 						Total : #{produtoBean.valorTotal}
 					</f:facet>
+	
 				#{produto.preco}
 			</h:column>
 
