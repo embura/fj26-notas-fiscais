@@ -3,6 +3,7 @@ package br.com.caelum.notasfiscais.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
@@ -13,15 +14,16 @@ public class ProdutoDao implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+	@Inject
+	private EntityManager manager;
+	
 	public void adiciona(Produto produto) {
-		EntityManager manager = new JPAUtil().getEntityManager();
 		manager.getTransaction().begin();
 
+		System.out.println("teste: "+produto);
 		//persiste o objeto
 		manager.persist(produto);
-		
 		manager.getTransaction().commit();
-		manager.close();
 	}
 
 
