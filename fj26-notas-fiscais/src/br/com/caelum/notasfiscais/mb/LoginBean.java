@@ -11,15 +11,19 @@ import br.com.caelum.notasfiscais.modelo.Usuario;
 
 @Named
 @RequestScoped
-public class LoginBean implements Serializable{
-	
+public class LoginBean implements Serializable {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	// testar inject
-	private Usuario usuario = new Usuario();
+	@Inject
+	private Usuario usuario;// = new Usuario();
+
+	@Inject
+	private UsuarioLogadoBean usuarioLogado;
 
 	@Inject
 	private UsuarioDao dao;
@@ -28,11 +32,19 @@ public class LoginBean implements Serializable{
 		boolean loginValido = dao.existe(this.usuario);
 
 		if (loginValido) {
+			usuarioLogado.logar(usuario);
 			return "produto?faces-redirect=true";
 		} else {
+			usuarioLogado.desloga();
 			this.usuario = new Usuario();
 			return "login";
 		}
+	}
+
+	public String logout() {
+		usuarioLogado.desloga();
+		this.usuario = new Usuario();
+		return "login";
 	}
 
 	public Usuario getUsuario() {

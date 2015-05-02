@@ -13,13 +13,13 @@ public class CicloDeVidaListener implements PhaseListener {
 
 	public void afterPhase(PhaseEvent event) {
 		// TODO Auto-generated method stub
-		System.out.println("Depois da fase: " + event.getPhaseId());
+		//System.out.println("Depois da fase: " + event.getPhaseId());
 
 	}
 
 	public void beforePhase(PhaseEvent event) {
 		// TODO Auto-generated method stub
-		System.out.println("Antes da fase: " + event.getPhaseId());
+		//System.out.println("Antes da fase: " + event.getPhaseId());
 	}
 
 	public PhaseId getPhaseId() {

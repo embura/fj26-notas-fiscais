@@ -14,7 +14,15 @@
 		<h:graphicImage library="imagens" name="logo-uber.png"
 			id="logoCompany" />
 	</div>
-	<div id="usuaarioLogado">Logado como: #{loginBean.usuario.login}
+
+	<div id="usuarioLogado">
+
+		<h:form rendered="#{usuarioLogadoBean.logado}">
+		Logado como:
+		#{usuarioLogadoBean.usuario.login}
+		<h:commandLink value="[Sair]" action="#{loginBean.logout}">
+			</h:commandLink>
+		</h:form>
 	</div>
 	<div id="conteudo">
 		<h:form id="form_cadastro">

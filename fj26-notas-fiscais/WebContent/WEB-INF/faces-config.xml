@@ -5,9 +5,10 @@
 	version="2.2">
 
 	<lifecycle>
-		<phase-listener>
-			br.com.caelum.notasfiscais.listener.CicloDeVidaListener
-		</phase-listener>
+		<phase-listener> br.com.caelum.notasfiscais.listener.CicloDeVidaListener 
+			</phase-listener >
+
+		<phase-listener>br.com.caelum.notasfiscais.listener.Autorizador</phase-listener>
 	</lifecycle>
-	
+
 </faces-config>
