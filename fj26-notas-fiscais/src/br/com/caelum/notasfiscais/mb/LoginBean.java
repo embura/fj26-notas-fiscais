@@ -17,13 +17,10 @@ public class LoginBean {
 
 	public String efetuaLogin() {
 		boolean loginValido = dao.existe(this.usuario);
-		System.out.println("O login era valido ?" + loginValido);
 
 		if (loginValido) {
-			System.out.println("O login era valido ?" + loginValido);
-			return "produto";
+			return "produto?faces-redirect=true";
 		} else {
-			System.out.println("O login era valido ?" + loginValido);
 			this.usuario = new Usuario();
 			return "login";
 		}

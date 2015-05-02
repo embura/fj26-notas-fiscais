@@ -11,20 +11,17 @@ public class CicloDeVidaListener implements PhaseListener {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Override
 	public void afterPhase(PhaseEvent event) {
 		// TODO Auto-generated method stub
 		System.out.println("Depois da fase: " + event.getPhaseId());
 
 	}
 
-	@Override
 	public void beforePhase(PhaseEvent event) {
 		// TODO Auto-generated method stub
 		System.out.println("Antes da fase: " + event.getPhaseId());
 	}
 
-	@Override
 	public PhaseId getPhaseId() {
 		// TODO Auto-generated method stub
 		return PhaseId.ANY_PHASE;
